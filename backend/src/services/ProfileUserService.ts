@@ -6,6 +6,9 @@ class ProfileUserService {
       where: {
         id: user_id,
       },
+      include: {
+        socials: true,
+      }
     });
 
     return user;

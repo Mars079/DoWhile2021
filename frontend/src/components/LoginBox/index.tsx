@@ -12,7 +12,7 @@ export function LoginBox() {
       <strong>Entre e compartilhe sua mensagem</strong>
       <a href={signInUrl} className={styles.signInWithGithub}>
         <VscGithubInverted size="24" />
-        Entrar com Github
+        Entre na conversa!
       </a>
     </div>
   );

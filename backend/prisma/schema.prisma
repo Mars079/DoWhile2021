@@ -14,16 +14,28 @@ model User {
   avatar_url String
   login      String
 
+  socials  Socials[]
   messages Message[]
   @@map("users")
 }
 
 model Message {
-  id         String   @id @default(uuid())
+  id         Int      @id @default(autoincrement())
   text       String
   created_at DateTime @default(now())
-  user       User     @relation(fields: [user_id], references: [id])
+  user       User     @relation(fields: [user_id], references: [id], onDelete: Cascade)
 
   user_id String
   @@map("messages")
+}
+
+model Socials {
+  github  String
+  twitter String?
+  youtube String?
+  lkdin   String?
+  user    User    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  user_id String @id
+  @@map("socials")
 }
